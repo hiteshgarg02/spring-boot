@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-10">
+      <h2> Transaction History</h2>
+      <table class="table table-striped space">
+        <thead>
+          <tr>
+            <th class="hidden">Id</th>
+            <th>From Account</th>
+            <th>To Account</th>
+            <th>Amount</th>
+            <th>Date Created</th>
+            <th>Date Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trn of transactions">
+            <td class="hidden">{{trn.transactionId}}</td>
+            <td>{{trn.fromEmail}}</td>
+            <td>{{trn.toEmail}}</td>
+            <td>{{trn.amount}}</td>
+            <td>{{trn.creationDate}}</td>
+            <td>{{trn.lastUpdatedDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

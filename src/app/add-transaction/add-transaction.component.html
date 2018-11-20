@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Create Transaction</h2>
+      <form [formGroup]="addForm" (ngSubmit)="onCreate()">
+        <div class="form-group">
+          <label>From Account: </label>
+          <select formControlName="fromId" name="fromId" class="form-control" id="fromId" (change)="filterForeCasts($event.target.value)">
+            <option *ngFor="let frm of fromList" value={{frm.accountId}}>
+              {{frm.email}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>To Account: </label>
+          <select formControlName="toId" name="toId" class="form-control" id="toId" (change)="filterForeCasts($event.target.value)">
+            <option *ngFor="let to of toList" value={{to.accountId}}>
+              {{to.email}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount:</label>
+          <input formControlName="amount" placeholder="amount" name="amount" class="form-control" id="amount">
+        </div>
+
+        <button class="btn btn-success" [disabled]="!addForm.valid" >Create</button>
+      </form>
+    </div>
+  </div>
+</div>

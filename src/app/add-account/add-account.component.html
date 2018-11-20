@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Add Account</h2>
+      <form [formGroup]="addForm" (ngSubmit)="onCreate()">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+          <div *ngIf="addForm.controls['email'].errors && !addForm.controls['email'].pristine" class="text-danger">
+            <div [hidden]="!addForm.controls['email'].errors.required">Email is required.</div>
+            <div [hidden]="!loginForm.controls['email'].errors.email">Email is invalid.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="accountName">Account Name:</label>
+          <input formControlName="accountName" placeholder="Account Name" name="accountName" class="form-control" id="accountName">
+          <div *ngIf="addForm.controls['accountName'].errors && !addForm.controls['accountName'].pristine" class="text-danger">
+            <div [hidden]="!addForm.controls['email'].errors.required">Account Name is required.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bankName">Bank Name:</label>
+          <input formControlName="bankName" placeholder="Bank name" name="bankName" class="form-control" id="bankName">
+          <div *ngIf="addForm.controls['bankName'].errors && !addForm.controls['bankName'].pristine" class="text-danger">
+            <div [hidden]="!addForm.controls['bankName'].errors.required">Bank Name is required.</div>
+          </div>
+        </div>
+
+        <button [disabled]="!addForm.valid" class="btn btn-success">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
